@@ -119,9 +119,9 @@ const playStop=()=>{
 const setStopButton=()=>{
     let html=`<i class="fa-solid fa-video-slash"></i><span>Stop video</span>`;
     document.querySelector('.main_video_button').innerHTML=html;
-}
+};
 
 const setPlayButton=()=>{
     let html=`<i class="fa-solid fa-video"></i><span>play Video</span>`;
     document.querySelector('.main_video_button').innerHTML=html;
-}
+};
