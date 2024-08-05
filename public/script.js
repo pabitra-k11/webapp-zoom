@@ -130,16 +130,16 @@ const setPlayButton=()=>{
 
 //add leave meeting features
 
-let btn=document.querySelector('.leave-meeting-button');
-btn.addEventListener('click',()=>{
-    leaveMeeting();
-});
+// let btn=document.querySelector('.leave-meeting-button');
+// btn.addEventListener('click',()=>{
+//     leaveMeeting();
+// });
 
-const leaveMeeting=()=>{
-    myVideoStream.getTracks().forEach(track=>track.stop());
-    socket.emit('user-left',peer.id);
-    peer.destroy();
-    socket.disconnect();
-    alert('you have left the meeting');
+// const leaveMeeting=()=>{
+//     myVideoStream.getTracks().forEach(track=>track.stop());
+//     socket.emit('user-left',peer.id);
+//     peer.destroy();
+//     socket.disconnect();
+//     alert('you have left the meeting');
 
-};
+// };
