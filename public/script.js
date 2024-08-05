@@ -29,7 +29,14 @@ navigator.mediaDevices.getUserMedia({
         connectToNewUser(userId, myVideoStream); // Pass the local stream
     });
 
-
+    socket.on('createMessage', message => {
+        let ul = document.querySelector('ul');
+        let li = document.createElement('li');
+        li.classList.add('message');
+        li.innerHTML = `<b>user</b><br/>${message}`;
+        ul.appendChild(li);
+        scrollToBottom();
+    });
 });
 
 peer.on('open', id => {
@@ -52,94 +59,65 @@ const addVideoStream = (video, stream) => {
     videoGrid.append(video);
 };
 
-let text=document.querySelector('input');
-
-document.addEventListener('keydown',(e)=>{
-    if(e.keyCode==13 && text.value.length !==0){
-        
-        socket.emit('message',text.value);
-        text.value='';
-    }
-  
-});
-
-let ul=document.querySelector('ul');
-socket.on('createMessage',message=>{
-    let li=document.createElement('li');
-    li.classList.add('message');
-    li.innerHTML=`<b>user</b><br/>${message}`;
-    ul.appendChild(li);
-    scrollToBottom();
-  
-});
-
-const scrollToBottom=()=>{
-    let d=document.querySelector('.main_chat_window');
+const scrollToBottom = () => {
+    let d = document.querySelector('.main_chat_window');
     d.scrollTop = d.scrollHeight;
-
 }
 
-//set unmute and mute button
-const muteUnmute=()=>{
-    const enabled=myVideoStream.getAudioTracks()[0].enabled;
-    if(enabled){
-        myVideoStream.getAudioTracks()[0].enabled=false;
-        setUnmuteButton();          
-    }else{
+// Mute/Unmute functionality
+const muteUnmute = () => {
+    const enabled = myVideoStream.getAudioTracks()[0].enabled;
+    if (enabled) {
+        myVideoStream.getAudioTracks()[0].enabled = false;
+        setUnmuteButton();
+    } else {
         setMuteButton();
-        myVideoStream.getAudioTracks()[0].enabled=true;
+        myVideoStream.getAudioTracks()[0].enabled = true;
     }
 }
 
-const setMuteButton=()=>{
-    let html=` <i class="fa-solid fa-microphone"></i>
-        <span>Mute</span>    
-    `
-    document.querySelector('.main_mute_button').innerHTML=html;
+const setMuteButton = () => {
+    let html = `<i class="fa-solid fa-microphone"></i><span>Mute</span>`;
+    document.querySelector('.main_mute_button').innerHTML = html;
 }
 
-const setUnmuteButton=()=>{
-    let html=`<i class="fa-solid fa-microphone-slash"></i>
-    <span>Unmute</span>`
-    document.querySelector('.main_mute_button').innerHTML=html;
+const setUnmuteButton = () => {
+    let html = `<i class="fa-solid fa-microphone-slash"></i><span>Unmute</span>`;
+    document.querySelector('.main_mute_button').innerHTML = html;
 }
 
-//set play and stop button
-const playStop=()=>{
-    let enabled=myVideoStream.getVideoTracks()[0].enabled;
-    if(enabled){
-        myVideoStream.getVideoTracks()[0].enabled=false;
+// Play/Stop video functionality
+const playStop = () => {
+    let enabled = myVideoStream.getVideoTracks()[0].enabled;
+    if (enabled) {
+        myVideoStream.getVideoTracks()[0].enabled = false;
         setStopButton();
-    }else{
+    } else {
         setPlayButton();
-        myVideoStream.getVideoTracks()[0].enabled=true;
+        myVideoStream.getVideoTracks()[0].enabled = true;
     }
 };
 
-const setStopButton=()=>{
-    let html=`<i class="fa-solid fa-video-slash"></i><span>Stop video</span>`;
-    document.querySelector('.main_video_button').innerHTML=html;
+const setStopButton = () => {
+    let html = `<i class="fa-solid fa-video-slash"></i><span>Stop Video</span>`;
+    document.querySelector('.main_video_button').innerHTML = html;
 };
 
-const setPlayButton=()=>{
-    let html=`<i class="fa-solid fa-video"></i><span>play Video</span>`;
-    document.querySelector('.main_video_button').innerHTML=html;
+const setPlayButton = () => {
+    let html = `<i class="fa-solid fa-video"></i><span>Play Video</span>`;
+    document.querySelector('.main_video_button').innerHTML = html;
 };
 
+// Leave meeting functionality
+let btn = document.querySelector('.leave-meeting-button');
+btn.addEventListener('click', () => {
+    leaveMeeting();
+});
 
-
-//add leave meeting features
-
-// let btn=document.querySelector('.leave-meeting-button');
-// btn.addEventListener('click',()=>{
-//     leaveMeeting();
-// });
-
-// const leaveMeeting=()=>{
-//     myVideoStream.getTracks().forEach(track=>track.stop());
-//     socket.emit('user-left',peer.id);
-//     peer.destroy();
-//     socket.disconnect();
-//     alert('you have left the meeting');
-
-// };
+const leaveMeeting = () => {
+    myVideoStream.getTracks().forEach(track => track.stop());
+    socket.emit('user-left', peer.id);
+    peer.destroy();
+    socket.disconnect();
+    alert('You have left the meeting');
+};
