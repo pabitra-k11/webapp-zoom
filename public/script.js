@@ -125,3 +125,20 @@ const setPlayButton=()=>{
     let html=`<i class="fa-solid fa-video"></i><span>play Video</span>`;
     document.querySelector('.main_video_button').innerHTML=html;
 };
+
+
+
+//add leave meeting features
+
+let btn=document.querySelector('.leave-meeting-button');
+btn.addEventListener('click',()=>{
+    leaveMeeting();
+});
+
+const leaveMeeting=()=>{
+    myVideoStream.getTracks().forEach(track=>track.stop());
+    socket.emit('user-left',peer.id);
+    peer.destroy();
+    socket.disconnect();
+    alert('you have left the meeting');
+};

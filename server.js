@@ -31,8 +31,11 @@ io.on('connection', socket =>{
         socket.on('message',message=>{
             io.to(roomId).emit('createMessage',message);
         });
-    })
-})
+        socket.on('user-disconnected',userId=>{
+            console.log(`user ${userId} has disconnected`);
+        });
+    });
+});
 
 
 server.listen(8080,()=>{
