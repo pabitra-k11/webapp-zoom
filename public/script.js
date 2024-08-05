@@ -26,7 +26,7 @@ navigator.mediaDevices.getUserMedia({
     });
 
     socket.on('user-connected', (userId) => {
-        connectToNewUser(userId, myVideoStream); // Pass the local stream
+        connectToNewUser(userId, stream); // Pass the local stream
     });
 
 
@@ -141,4 +141,5 @@ const leaveMeeting=()=>{
     peer.destroy();
     socket.disconnect();
     alert('you have left the meeting');
+
 };
