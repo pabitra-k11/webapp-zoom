@@ -120,4 +120,5 @@ const leaveMeeting = () => {
     peer.destroy();
     socket.disconnect();
     alert('You have left the meeting');
+    window.location.href = '/';
 };
