@@ -33,7 +33,7 @@ navigator.mediaDevices.getUserMedia({
         let ul = document.querySelector('ul');
         let li = document.createElement('li');
         li.classList.add('message');
-        li.innerHTML = `<b>guest${uuidv4()}</b><br/>${message}`;
+        li.innerHTML = `<b>User</b><br/>${message}`;
         ul.appendChild(li);
         scrollToBottom();
     });
