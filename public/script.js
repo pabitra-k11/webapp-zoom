@@ -26,7 +26,7 @@ navigator.mediaDevices.getUserMedia({
     });
 
     socket.on('user-connected', (userId) => {
-        connectToNewUser(userId, stream); // Pass the local stream
+        connectToNewUser(userId, myVideoStream); // Pass the local stream
     });
 
 
