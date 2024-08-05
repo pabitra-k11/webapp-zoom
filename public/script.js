@@ -29,8 +29,17 @@ navigator.mediaDevices.getUserMedia({
         connectToNewUser(userId, myVideoStream); // Pass the local stream
     });
 
+    let text=document.querySelector('input');
+    document.addEventListener('keydown',(e)=>{
+        if(e.keyCode==13 && text.value.length!==0){
+            socket.emit('message',text.value);
+            text.value='';
+        }
+    });
+
+    let ul = document.querySelector('ul');
     socket.on('createMessage', message => {
-        let ul = document.querySelector('ul');
+       
         let li = document.createElement('li');
         li.classList.add('message');
         li.innerHTML = `<b>user</b><br/>${message}`;
