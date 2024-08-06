@@ -92,43 +92,59 @@ display: flex;
 }
 
 @media(min-width:577px) and (max-width:768px){
+    .main{
+        flex-direction: row;
 
-  
-    #video-grid{
+    }
+    .main_left{
+        flex: 0.7;
+    }
+    .main_right{
         display: flex;
-       
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+        flex: 0.3;
     }
     video{
-
-        width: 300px;
         height: 200px;
-       
-        margin-left: 2px;
-      
-        object-fit: cover;
+        width: 200px;
     }
-
 }
-@media(min-width:390px) and (max-width:576px){
- 
-    #video-grid{
+
+@media(min-width:768px){
+    .main{
+        flex-direction: row;
+        
+    }
+    .main_left{
+        flex: 0.8;
+    }
+    .main_right{
         display: flex;
-       
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+        flex: 0.2;
     }
     video{
-        
+        height: 250px;
         width: 250px;
-        height: 200px;
-        object-fit: cover;
-        margin-left: 2px;
-     
-        
     }
  
+
+ 
+}
+@media(min-width:992px){
+    .main{
+        flex-direction: row;
+    }
+    .main_left{
+        flex: 0.85;
+    }
+    .main_right{
+        display: flex;
+        flex: 0.15;
+    }
+    video{
+        height: 300px;
+        width: 300px;
+    }
+    .main_controls_buttons{
+        min-width: 100px;
+    }
 }
