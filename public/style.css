@@ -62,6 +62,7 @@ video{
     color: #EB534B;
 }
 .main_right{
+    display: none;
     display: flex;
     flex-direction: column;
     background-color: #242324;
