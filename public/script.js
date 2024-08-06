@@ -38,9 +38,9 @@ navigator.mediaDevices.getUserMedia({
         }
     });
 
-    let ul = document.querySelector('.messages');
+    
     socket.on('createMessage', message => {
-       
+        let ul = document.querySelector('ul');
         let li = document.createElement('li');
         li.classList.add('message');
         li.innerHTML = `<b>user</b><br/>${message}`;
