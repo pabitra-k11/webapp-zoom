@@ -75,7 +75,7 @@ const addVideoStream = (video, stream) => {
 };
 
 const scrollToBottom = () => {
-    let d = document.querySelector('.main_chat_box');
+    let d = document.querySelector('.main_chat_window');
     d.scrollTop = d.scrollHeight;
 }
 

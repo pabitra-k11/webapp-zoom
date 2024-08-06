@@ -59,6 +59,14 @@ video{
 .main_controls_button i{
     font-size: 20px;
 }
+
+.main_controls_button label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .leave_meeting_btn{
     color: #EB534B;
 }
@@ -72,15 +80,15 @@ video{
     color: #f5f5f5;
     text-align: center;
 }
-.main_chat_box{
+.main_chat_window{
     flex-grow: 1;
 
 }
-.main_message_box{
+.main_message_container{
     display: flex;
     padding: 22px 12px;
 }
-.main_message_box input{
+.main_message_container input{
     flex-grow: 1;
     border: none;
     background-color: transparent;
