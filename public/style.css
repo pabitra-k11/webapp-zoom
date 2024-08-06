@@ -56,7 +56,16 @@ video{
     border-radius: 5px;
 }
 .main_controls_buttons i{
-    font-size: 24px;
+    font-size: 20px;
+}
+.main_controls_buttons span{
+    font-size: 16px;
+}
+.main_controls_buttons label{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 }
 .leave-meeting{
     color: #EB534B;
