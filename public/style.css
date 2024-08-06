@@ -1,48 +1,73 @@
-body{
+/* Reset and global styles */
+body {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
 }
 
-#video-grid{
-    display: flex;
+/* Video grid styles */
+#video-grid {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr; /* Default two columns */
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+    margin: auto;
 }
-video{
-    height: 200px;
-    width: 300px;
+
+video {
+    width: 100%;
+    height: auto;
     object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #333;
 }
-.main{
-    height: 100vh;
+
+/* Main layout styles */
+.main {
     display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
-.main_left{
+
+.main_left {
     flex: 0.8;
     display: flex;
     flex-direction: column;
 }
-.main_right{
+
+.main_right {
     flex: 0.2;
+    background-color: #242324;
+    border-left: 1px solid #3D3D42;
 }
-.main_videos{
+
+.main_videos {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
 }
-.main_controls{
+
+/* Control panel styles */
+.main_controls {
     display: flex;
     justify-content: space-between;
     background-color: #1c1E20;
     color: #D2D2D2;
     padding: 5px;
 }
-.main_controls_block{
+
+.main_controls_block {
     display: flex;
 }
-.main_controls_buttons{
+
+.main_controls_buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,84 +76,99 @@ video{
     min-width: 80px;
     cursor: pointer;
 }
-.main_controls_buttons:hover{
+
+.main_controls_buttons:hover {
     background-color: #343434;
     border-radius: 5px;
 }
-.main_controls_buttons i{
+
+.main_controls_buttons i {
     font-size: 24px;
 }
-.leave-meeting{
+
+.leave-meeting {
     color: #EB534B;
 }
-.main_right{
-    display: flex;
-    flex-direction: column;
-    background-color: #242324;
-    border-left: 1px solid #3D3D42;
-}
-.main_header{
+
+/* Chat and message styles */
+.main_header {
     color: #F5F5F5;
     text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #3D3D42;
 }
-.main_chat_window{
+
+.main_chat_window {
     flex-grow: 1;
-   overflow-y: scroll;
+    overflow-y: auto;
+    padding: 10px;
 }
-.main_message_container{
-padding: 22px 12px;
-display: flex;
+
+.main_message_container {
+    display: flex;
+    padding: 10px;
 }
-.main_message_container input{
+
+.main_message_container input {
     flex-grow: 1;
-    background-color: transparent;
-    border: none;
+    background-color: #1e1e1e;
+    border: 1px solid #3D3D42;
+    border-radius: 5px;
     color: #F5F5F5;
-    padding: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    outline: none;
 }
-.message{
+
+.main_message_container button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.message {
     color: #D2D2D2;
     list-style: none;
+    padding: 5px 0;
+    border-bottom: 1px solid #3D3D42;
 }
 
-@media(min-width:577px) and (max-width:768px){
-
-  
-    #video-grid{
-        display: flex;
-       
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-    video{
-
-        width: 250px;
-        height: 200px;
-       
-        margin-left: 2px;
-      
-        object-fit: cover;
-    }
-
+.message b {
+    color: #fff;
 }
-@media(min-width:390px) and (max-width:576px){
- 
-    #video-grid{
-        display: flex;
-       
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+
+/* Media queries for responsive design */
+
+/* Tablets and small desktops */
+@media (max-width: 768px) {
+    #video-grid {
+        grid-template-columns: 1fr 1fr; /* Still two columns */
     }
-    video{
-        
-        width: 250px;
-        height: 200px;
-        object-fit: cover;
-        margin-left: 2px;
-     
-        
+
+    .main_controls_buttons {
+        min-width: 60px;
     }
- 
+
+    .main_message_container input {
+        padding: 5px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    #video-grid {
+        grid-template-columns: 1fr; /* One column on mobile */
+    }
+
+    .main_controls_buttons {
+        min-width: 50px;
+    }
+
+    .main_message_container input {
+        padding: 5px;
+        font-size: 14px;
+    }
 }
