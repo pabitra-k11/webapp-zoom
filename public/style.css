@@ -1,4 +1,3 @@
-
 body{
     margin: 0;
     padding: 0;
@@ -10,7 +9,7 @@ body{
     flex-wrap: wrap;
 }
 video{
-    height: 300px;
+    height: 200px;
     width: 300px;
     object-fit: cover;
 }
@@ -90,4 +89,46 @@ display: flex;
 .message{
     color: #D2D2D2;
     list-style: none;
+}
+
+@media(min-width:577px) and (max-width:768px){
+
+  
+    #video-grid{
+        display: flex;
+       
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    video{
+
+        width: 250px;
+        height: 200px;
+       
+        margin-left: 2px;
+      
+        object-fit: cover;
+    }
+
+}
+@media(min-width:390px) and (max-width:576px){
+ 
+    #video-grid{
+        display: flex;
+       
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    video{
+        
+        width: 250px;
+        height: 200px;
+        object-fit: cover;
+        margin-left: 2px;
+     
+        
+    }
+ 
 }
