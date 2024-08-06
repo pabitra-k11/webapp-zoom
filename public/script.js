@@ -38,7 +38,7 @@ navigator.mediaDevices.getUserMedia({
         }
     });
 
-    let ul = document.querySelector('ul');
+    let ul = document.querySelector('.messages');
     socket.on('createMessage', message => {
        
         let li = document.createElement('li');
