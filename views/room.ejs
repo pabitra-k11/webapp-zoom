@@ -17,36 +17,36 @@
 </head>
 <body>
       
-      <div class="main">
-           <div class="main_left">
-            <div class="main_videos">
-                <div id="video_grid">
+      <div class="main_container">
+           <div class="main_left_container">
+            <div class="main_videos_container">
+                <div id="video_grids">
 
             </div>
-            <div class="main_controls">
-                <div class="main_controls_block">
-                    <div class="main_controls_buttons main_mute_button" onclick="muteUnmute()">
+            <div class="main_controls_container">
+                <div class="main_controls_block_container">
+                    <div class="main_controls_button main_mute_button" onclick="muteUnmute()">
                         <i class="fa-solid fa-microphone"></i>
                         <span>Mute</span>
                     </div>
-                    <div class="main_controls_buttons main_video_button" onclick="playStop()">
+                    <div class="main_controls_button main_video_button" onclick="playStop()">
                         <i class="fa-solid fa-video"></i>
                         <span>Stop Video</span>
                     </div>
                 </div>
 
-                <div class="main_controls_block">
-                    <div class="main_controls_buttons">
+                <div class="main_controls_block_container">
+                    <div class="main_controls_button">
                         <i class="fa-solid fa-shield"></i>
                         <span>Security</span>
                     </div>
-                    <div class="main_controls_buttons">
+                    <div class="main_controls_button">
                         <i class="fa-solid fa-users"></i>
                         <span>Participants</span>
                     </div>
 
 
-                    <div class="main_controls_buttons">
+                    <div class="main_controls_button">
                         <label for="chat">
                              <i class="fa-solid fa-comment"></i>
                              <span>Chat</span>
@@ -54,10 +54,10 @@
                     </div>
                 </div>
 
-                <div class="main_controls_block">
-                    <div class="main_controls_buttons leave-meeting-button">
+                <div class="main_controls_block_container">
+                    <div class="main_controls_button leave-meeting-button">
                        
-                        <span class="leave_meeting">Leave Meeting</span>
+                        <span class="leave_meeting_btn">Leave Meeting</span>
                     </div>
                   
                 </div>
@@ -65,17 +65,17 @@
             </div>
 
            </div>
-           <div class="main_right">
-                <div class="main_header">
+           <div class="main_right_container">
+                <div class="main_header_box">
                     <h4>Chat</h4>
                 </div>
-                <div class="main_chat_window">
+                <div class="main_chat_box">
                      <ul class="messages">
                       
 
                      </ul>
                 </div>
-                <div class="main_message_container">
+                <div class="main_message_box">
                     <input type="text" id="chat" placeholder="Type message here...">
                 </div>
            </div>
