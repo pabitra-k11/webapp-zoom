@@ -1,4 +1,5 @@
-const socket = io('/');
+const socket = io('/', { transports: ['polling'] });
+
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement('video');
 myVideo.muted = true;
