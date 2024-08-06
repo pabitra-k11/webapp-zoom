@@ -1,4 +1,4 @@
-/* Reset and global styles */
+/* Global styles */
 body {
     margin: 0;
     padding: 0;
@@ -14,7 +14,6 @@ body {
     padding: 10px;
     grid-template-columns: 1fr 1fr; /* Default two columns */
     justify-content: center;
-    align-items: center;
     max-width: 100%;
     margin: auto;
 }
@@ -35,15 +34,18 @@ video {
 }
 
 .main_left {
-    flex: 0.8;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .main_right {
-    flex: 0.2;
     background-color: #242324;
     border-left: 1px solid #3D3D42;
+    flex-basis: 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
 .main_videos {
@@ -142,33 +144,39 @@ video {
 
 /* Media queries for responsive design */
 
-/* Tablets and small desktops */
-@media (max-width: 768px) {
+/* Large devices */
+@media (min-width: 1024px) {
     #video-grid {
-        grid-template-columns: 1fr 1fr; /* Still two columns */
+        grid-template-columns: repeat(2, 1fr); /* Two columns for large screens */
+    }
+
+    .main_right {
+        max-width: 400px;
+    }
+}
+
+/* Medium devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #video-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    }
+
+    .main_right {
+        max-width: 300px;
+    }
+}
+
+/* Small devices */
+@media (max-width: 767px) {
+    #video-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+    }
+
+    .main_right {
+        max-width: 100%;
     }
 
     .main_controls_buttons {
         min-width: 60px;
-    }
-
-    .main_message_container input {
-        padding: 5px;
-    }
-}
-
-/* Mobile devices */
-@media (max-width: 480px) {
-    #video-grid {
-        grid-template-columns: 1fr; /* One column on mobile */
-    }
-
-    .main_controls_buttons {
-        min-width: 50px;
-    }
-
-    .main_message_container input {
-        padding: 5px;
-        font-size: 14px;
     }
 }
