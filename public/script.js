@@ -1,6 +1,6 @@
 const socket = io('/', { transports: ['polling'] });
 
-const videoGrid = document.getElementById("video__grid");
+const videoGrid = document.getElementById("video_grid");
 const myVideo = document.createElement('video');
 myVideo.muted = true;
 
@@ -75,7 +75,7 @@ const addVideoStream = (video, stream) => {
 };
 
 const scrollToBottom = () => {
-    let d = document.querySelector('.main__chat__window');
+    let d = document.querySelector('.main_chat_window');
     d.scrollTop = d.scrollHeight;
 }
 
