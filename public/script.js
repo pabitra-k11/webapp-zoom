@@ -66,7 +66,12 @@ const addVideoStream = (video, stream) => {
     video.addEventListener('loadedmetadata', () => {
         video.play();
     });
-    videoGrid.append(video);
+    if(videoGrid){
+        videoGrid.append(video);
+    }else{
+        console.log("video is not found!");
+    }
+    
 };
 
 const scrollToBottom = () => {
