@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
 }
-.maine{
+.main{
     display: flex;
     height: 100vh;
 }
